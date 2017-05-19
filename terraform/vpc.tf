@@ -23,6 +23,11 @@ data "aws_route_table" "main" {
     }
 }
 
+data "aws_security_group" "default" {
+    name = "default"
+    vpc_id = "${aws_vpc.main.id}"
+}
+
 resource "aws_vpc" "main" {
     cidr_block = "${var.cidr_block}"
     enable_dns_support = false
