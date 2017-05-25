@@ -1,7 +1,7 @@
 # vim: set ft=ruby ts=4 ss=4 sw=4:
 
 provider "aws" {
-    region = "eu-west-2"
+    region = "us-east-1"
 }
 
 variable "cidr_block" {
@@ -30,7 +30,7 @@ data "aws_security_group" "default" {
 
 resource "aws_vpc" "main" {
     cidr_block = "${var.cidr_block}"
-    enable_dns_support = false
+    enable_dns_support = true
     enable_dns_hostnames = false
 
     tags {
